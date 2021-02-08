@@ -205,7 +205,7 @@ sqi_corplot <- df %>%
   labs(x = "pooled SQI", y="SQI by country", color = "Country", fill = "Country") +
   scale_colour_viridis_d(end = 0.9) +
   theme_minimal() +
-  theme(text = element_text(size=10, family="LM Roman 10")) +
+  theme(text = element_text(size=8, family="LM Roman 10")) +
   ggsave("figures/sqi_corr.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 
 # plot correletation bewteen additive and weighted SQI
@@ -217,7 +217,7 @@ df %>%
   labs(x = "pooled SQI", y = "Additive quality score", color = "Country", fill = "Country" ) +
   scale_colour_viridis_d(end = 0.9) +
   theme_minimal() +
-  theme(text = element_text(size=10, family="LM Roman 10")) +
+  theme(text = element_text(size=8, family="LM Roman 10")) +
   ggsave("figures/cor_additive.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 ## Second, by separately calculated SQI
 df %>% 
@@ -227,7 +227,7 @@ df %>%
   labs(x = "SQI by country", y = "Additive quality score", color = "Country", fill = "Country" ) +
   scale_colour_viridis_d(end = 0.9) +
   theme_minimal() +
-  theme(text = element_text(size=10, family="LM Roman 10")) +
+  theme(text = element_text(size=8, family="LM Roman 10")) +
   ggsave("figures/cor_add_ctry.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 
 ###########################
@@ -435,7 +435,7 @@ df %>%
        fill = "SQI score"
   ) +
   theme_minimal()+ 
-  theme(text = element_text(size=10, family="LM Roman 10")) +
+  theme(text = element_text(size=8, family="LM Roman 10")) +
   facet_grid(.~name)+
   ggsave("figures/sqi_ctry.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 
@@ -821,8 +821,8 @@ alt_levels %>%
   scale_colour_viridis_d(direction = -1)  +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        text = element_text(size=10, family="LM Roman 10")) +
-  ggsave("figures/newlevels.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
+        text = element_text(size=8, family="LM Roman 10")) +
+  ggsave("figures/newlevels.eps", device = cairo_ps, width = 119, height = 80, units = "mm")
 
 alt_levels %>%   
   ggplot() +
@@ -836,8 +836,8 @@ alt_levels %>%
   scale_fill_viridis_d(direction = -1) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        text = element_text(size=10, family="LM Roman 10")) +
-  ggsave("figures/freqlevels.eps", device = cairo_ps, width = 119, height = 73, units = "mm")    
+        text = element_text(size=8, family="LM Roman 10")) +
+  ggsave("figures/freqlevels.eps", device = cairo_ps, width = 119, height = 90, units = "mm")    
 
 # Make description table of alternative specification of levels
 tibble(
@@ -914,7 +914,7 @@ df %>%
   labs(x = "Reported cleanliness", y = "Proportion", fill = "Observed/remote cleanliness") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        text = element_text(size=10, family="LM Roman 10")) +
+        text = element_text(size=8, family="LM Roman 10")) +
   ggsave("figures/reliability.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 
 #########################
@@ -1030,7 +1030,7 @@ df %>%
   labs(x = "Reported cleanliness", y = "Proportion", fill = "Observed/remote cleanliness") +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        text = element_text(size=10, family="LM Roman 10")) +
+        text = element_text(size=8, family="LM Roman 10")) +
   ggsave("figures/reliability.eps", device = cairo_ps, width = 119, height = 73, units = "mm")
 
 # MCA RESULTS for appendix
@@ -1071,16 +1071,16 @@ tibble(Variable = names(weights),
 # screeplots of MCA
 scree1 <- fviz_screeplot(mca_out, ylim = c(0, 40)) + 
   labs(x = "Dimensions", y = "Percentage of explained variance", title = "Pooled sample") +
-  theme(text = element_text(size=10, family="LM Roman 10")) 
+  theme(text = element_text(size=8, family="LM Roman 10")) 
 scree2 <- fviz_screeplot(df_nest$mca.out[[1]], ylim = c(0, 40)) + 
   labs(x = "Dimensions", y = "Percentage of explained variance", title = "Kenya") +
-  theme(text = element_text(size=10, family="LM Roman 10")) 
+  theme(text = element_text(size=8, family="LM Roman 10")) 
 scree3 <- fviz_screeplot(df_nest$mca.out[[2]], ylim = c(0, 40)) + 
   labs(x = "Dimensions", y = "Percentage of explained variance", title = "Ghana") +
-  theme(text = element_text(size=10, family="LM Roman 10")) 
+  theme(text = element_text(size=8, family="LM Roman 10")) 
 scree4 <- fviz_screeplot(df_nest$mca.out[[3]], ylim = c(0, 40)) + 
   labs(x = "Dimensions", y = "Percentage of explained variance", title = "Bangladesh") +
-  theme(text = element_text(size=10, family="LM Roman 10"))
+  theme(text = element_text(size=8, family="LM Roman 10"))
 
 ggarrange(scree1, scree2, scree3, scree4,  ncol = 2, nrow = 2) +
   ggsave("figures/scree_pooled.eps", device = cairo_ps,  width = 119, height = 119, units = "mm")
